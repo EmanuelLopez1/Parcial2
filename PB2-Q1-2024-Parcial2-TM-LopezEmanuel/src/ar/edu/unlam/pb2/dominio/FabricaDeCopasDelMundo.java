@@ -14,12 +14,16 @@ public class FabricaDeCopasDelMundo {
 	private String nombre;
 	private List<CopaDelMundo> copaDelMundos;
 	private List<Cliente> clientes;
+	private List<VentasCopasEstandar> ventasCopaEstandar;
+	private List<Venta> ventas;
 
 	public FabricaDeCopasDelMundo(String nombre) {
 		// TODO Auto-generated constructor stub
 		this.nombre = nombre;
 		this.copaDelMundos = new ArrayList<>();
 		this.clientes = new ArrayList<>();
+		this.ventasCopaEstandar = new ArrayList<>();
+		this.ventas = new ArrayList<>();
 		
 	}
 
@@ -40,9 +44,11 @@ public class FabricaDeCopasDelMundo {
 	}
 
 	public List<CopaDelMundo> obtenerCopasDelMundoEstandar() {
+		if(!(this.copaDelMundos instanceof CopaDelMundoPersonalizada)) {
+			
+		}
 		
-		
-		return null;
+		return this.copaDelMundos;
 	}
 
 	public CopaDelMundo obtenerCopaDelMundoPorId(Long id) throws CopaDelMundoNoEncontradaException {
@@ -56,10 +62,22 @@ public class FabricaDeCopasDelMundo {
 	}
 
 	public void agregarCopaDelMundoEstandarAVentaDeCliente(Cliente clienteDeVenta, Long idCopaDelMundo,
-			Integer cantidadAVender) {
+			Integer cantidadAVender) throws CopaDelMundoNoEncontradaException, ClienteDuplicadoException {
+		
+		Integer cantidad = 4;
+		
+		this.obtenerCopaDelMundoPorId(idCopaDelMundo);
+		this.agregarCliente(clienteDeVenta);
+		
+		for (VentasCopasEstandar estandar : ventasCopaEstandar){
+			
+			
+				
+			}
+			
+		}
 		
 		
-	}
 
 	public void agregarCopaDelMundoPersonalizadaAVentaDeCliente(Cliente clienteDeVenta, Long idCopaDelMundo) {
 		
@@ -77,6 +95,7 @@ public class FabricaDeCopasDelMundo {
 	}
 
 	private Venta obtenerVentaPorCliente(Cliente cliente) throws ClienteDuplicadoException {
+		
 		
 	
 		return null;
